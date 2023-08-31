@@ -35,8 +35,8 @@ namespace BCardLink
             this.label1 = new System.Windows.Forms.Label();
             this.cboDevices = new System.Windows.Forms.ComboBox();
             this.btnsettings = new System.Windows.Forms.Button();
-            this.txtUID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtUID = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,13 +49,13 @@ namespace BCardLink
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.84861F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.1514F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel1.Controls.Add(this.lblMessage, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cboDevices, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnsettings, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtUID, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.txtUID, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboDevices, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -77,27 +77,30 @@ namespace BCardLink
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(1130, 38);
             this.lblMessage.TabIndex = 0;
-            this.lblMessage.Text = "place card on the reader to scan";
+            this.lblMessage.Text = "place card on the reader to scan until you see a loading bar.";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(60, 0);
             this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(30, 20, 30, 20);
-            this.label1.Size = new System.Drawing.Size(118, 58);
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
+            this.label1.Size = new System.Drawing.Size(65, 58);
             this.label1.TabIndex = 1;
             this.label1.Text = "device:";
             // 
             // cboDevices
             // 
+            this.cboDevices.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDevices.FormattingEnabled = true;
             this.cboDevices.Location = new System.Drawing.Point(158, 18);
             this.cboDevices.Margin = new System.Windows.Forms.Padding(30, 18, 30, 30);
             this.cboDevices.Name = "cboDevices";
-            this.cboDevices.Size = new System.Drawing.Size(812, 21);
+            this.cboDevices.Size = new System.Drawing.Size(204, 28);
             this.cboDevices.TabIndex = 2;
             this.cboDevices.SelectedIndexChanged += new System.EventHandler(this.cboDevices_SelectedIndexChanged);
             // 
@@ -105,7 +108,7 @@ namespace BCardLink
             // 
             this.btnsettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnsettings.BackgroundImage")));
             this.btnsettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnsettings.Location = new System.Drawing.Point(1020, 5);
+            this.btnsettings.Location = new System.Drawing.Point(1017, 5);
             this.btnsettings.Margin = new System.Windows.Forms.Padding(20, 5, 3, 3);
             this.btnsettings.Name = "btnsettings";
             this.btnsettings.Size = new System.Drawing.Size(78, 44);
@@ -113,32 +116,32 @@ namespace BCardLink
             this.btnsettings.UseVisualStyleBackColor = true;
             this.btnsettings.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtUID
-            // 
-            this.txtUID.BackColor = System.Drawing.Color.White;
-            this.txtUID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUID.Location = new System.Drawing.Point(158, 61);
-            this.txtUID.Margin = new System.Windows.Forms.Padding(30, 3, 3, 0);
-            this.txtUID.Multiline = true;
-            this.txtUID.Name = "txtUID";
-            this.txtUID.ReadOnly = true;
-            this.txtUID.Size = new System.Drawing.Size(813, 41);
-            this.txtUID.TabIndex = 4;
-            this.txtUID.Visible = false;
-            this.txtUID.TextChanged += new System.EventHandler(this.txtUID_TextChanged);
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 58);
+            this.label2.Location = new System.Drawing.Point(62, 58);
             this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(20, 15, 30, 0);
-            this.label2.Size = new System.Drawing.Size(113, 44);
+            this.label2.Size = new System.Drawing.Size(63, 29);
             this.label2.TabIndex = 5;
             this.label2.Text = "UID:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Visible = false;
+            // 
+            // txtUID
+            // 
+            this.txtUID.BackColor = System.Drawing.Color.White;
+            this.txtUID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.txtUID.Location = new System.Drawing.Point(128, 58);
+            this.txtUID.Margin = new System.Windows.Forms.Padding(0);
+            this.txtUID.Multiline = true;
+            this.txtUID.Name = "txtUID";
+            this.txtUID.ReadOnly = true;
+            this.txtUID.Size = new System.Drawing.Size(371, 29);
+            this.txtUID.TabIndex = 4;
+            this.txtUID.Visible = false;
             // 
             // Main
             // 
@@ -150,9 +153,12 @@ namespace BCardLink
             this.ClientSize = new System.Drawing.Size(1139, 669);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Main";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CardReader";
             this.Shown += new System.EventHandler(this.Main_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

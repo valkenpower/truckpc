@@ -1,22 +1,13 @@
 ﻿using MiFare;
 using MiFare.Classic;
 using MiFare.Devices;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net.Http;
 using System.Diagnostics;
-using Newtonsoft.Json;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Reflection;
-using System.Runtime.CompilerServices;
+using System.Linq;
+using System.Net.Http;
+using System.Windows.Forms;
 
 namespace BCardLink
 {
@@ -46,10 +37,10 @@ namespace BCardLink
             {
                 card.Dispose();
                 card = null;
-
+                
                 var ignored = this.BeginInvoke((Action)(() =>
                 {
-
+                    WriteMessage("place card on the reader to scan until you see a loading bar.");
                 }));
             }
             catch (Exception E)
@@ -76,6 +67,7 @@ namespace BCardLink
                 var ignored = this.BeginInvoke((Action)(() =>
                 {
                     txtUID.Visible = true;
+                    label2.Visible = true;
                     WriteMessage("Card detected. Do not remove while linking.");
                     txtUID.Text = BitConverter.ToString(uid);
 
@@ -97,7 +89,8 @@ namespace BCardLink
 
                     Console.WriteLine(c.cardnumber);
 
-                    if (c.error == null) {
+                    if (c.error == null)
+                    {
 
                         foreach (var process in Process.GetProcessesByName("mstsc"))
                         {
@@ -116,11 +109,13 @@ namespace BCardLink
                     }
                     else
                     {
+                        WriteMessage("this card is not authorized try another card.");
                         foreach (var process in Process.GetProcessesByName("mstsc"))
                         {
                             process.Kill();
                         }
                         MessageBox.Show("Error ... " + c.error);
+                        
                     }
                 }));
 
@@ -133,6 +128,7 @@ namespace BCardLink
             }
             catch (Exception ex)
             {
+                WriteMessage("can't read the UID try again");
                 PopupMessage("CardAdded Exception: " + ex.Message);
             }
         }
@@ -159,7 +155,6 @@ namespace BCardLink
             Console.WriteLine("gfdgdfg");
             try
             {
-
                 IReadOnlyList<string> readers = CardReader.GetReaderNames();
 
                 cboDevices.Items.AddRange(readers.ToArray());
@@ -182,7 +177,6 @@ namespace BCardLink
                     PopupMessage("No Readers Found");
                     return;
                 }
-
                 reader.CardAdded += CardAdded;
                 reader.CardRemoved += CardRemoved;
                 WriteMessage("Place card on the reader to scan.");
@@ -223,11 +217,6 @@ namespace BCardLink
             reader = null;
         }
 
-        private void txtUID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private static readonly HttpClient client = new HttpClient();
 
         private void button1_Click(object sender, EventArgs e)
@@ -235,7 +224,7 @@ namespace BCardLink
             if (!isLoginFormOpen)
             {
                 isLoginFormOpen = true;
-                var login = new login();
+                var login = new Login();
                 login.FormClosed += LoginForm_FormClosed;
                 login.Show();
             }
@@ -246,15 +235,6 @@ namespace BCardLink
             isLoginFormOpen = false; // Reset the flag when the login form is closed
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Console.WriteLine(Properties.Settings.Default.URL);
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-
-        }
         private void Main_Shown(object sender, EventArgs e)
         {
             // voor de reader gelijk te kiezen
@@ -267,6 +247,5 @@ namespace BCardLink
         }
 
     }
-
 
 }

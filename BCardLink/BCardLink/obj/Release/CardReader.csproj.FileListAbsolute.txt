@@ -54,7 +54,6 @@ C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\MiFare.xml
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\Newtonsoft.Json.xml
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\CardReader.csproj.AssemblyReference.cache
-C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.form2.resources
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.login.resources
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.Main.resources
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.Properties.Resources.resources
@@ -65,3 +64,4 @@ C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\CardReader.csproj.CopyComplete
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.exe
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.pdb
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.wijzig_url.resources
