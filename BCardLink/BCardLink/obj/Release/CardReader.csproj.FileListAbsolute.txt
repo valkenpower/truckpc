@@ -1,0 +1,67 @@
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\BCardLink.exe.config
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\BCardLink.exe.manifest
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\BCardLink.application
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\BCardLink.exe
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\BCardLink.pdb
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\MiFare.dll
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\Newtonsoft.Json.dll
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\MiFare.pdb
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\MiFare.xml
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\bin\Release\Newtonsoft.Json.xml
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\CardReader.csproj.AssemblyReference.cache
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\CardReader.csproj.SuggestedBindingRedirects.cache
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\BCardLink.form2.resources
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\BCardLink.login.resources
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\BCardLink.Main.resources
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\BCardLink.Properties.Resources.resources
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\CardReader.csproj.GenerateResource.cache
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\CardReader.csproj.CoreCompileInputs.cache
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\BCardLink.exe.manifest
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\BCardLink.application
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\CardReader.csproj.CopyComplete
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\BCardLink.exe
+C:\Users\chahir-stage_valkenp\Downloads\nfc-card-reader-winform-main\nfc-card-reader-winform-main\BCardLink\BCardLink\obj\Release\BCardLink.pdb
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\CardReader.csproj.AssemblyReference.cache
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\BCardLink.form2.resources
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\BCardLink.login.resources
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\BCardLink.Main.resources
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\CardReader.csproj.GenerateResource.cache
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\BCardLink.exe
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\BCardLink.pdb
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\BCardLink.exe.config
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\BCardLink.exe.manifest
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\BCardLink.application
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\BCardLink.exe
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\BCardLink.pdb
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\MiFare.dll
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\Newtonsoft.Json.dll
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\MiFare.pdb
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\MiFare.xml
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\bin\Release\Newtonsoft.Json.xml
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\BCardLink.Properties.Resources.resources
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\CardReader.csproj.CoreCompileInputs.cache
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\BCardLink.exe.manifest
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\BCardLink.application
+C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\BCardLink\BCardLink\obj\Release\CardReader.csproj.CopyComplete
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\BCardLink.exe.config
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\BCardLink.exe.manifest
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\BCardLink.application
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\BCardLink.exe
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\BCardLink.pdb
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\MiFare.dll
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\Newtonsoft.Json.dll
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\MiFare.pdb
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\MiFare.xml
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\bin\Release\Newtonsoft.Json.xml
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\CardReader.csproj.AssemblyReference.cache
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.form2.resources
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.login.resources
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.Main.resources
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.Properties.Resources.resources
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\CardReader.csproj.GenerateResource.cache
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\CardReader.csproj.CoreCompileInputs.cache
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.exe.manifest
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.application
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\CardReader.csproj.CopyComplete
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.exe
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Release\BCardLink.pdb
