@@ -145,11 +145,13 @@
             this.Controls.Add(this.Logintxt);
             this.Controls.Add(this.valkenpower_logo);
             this.Controls.Add(this.password);
+            this.Location = new System.Drawing.Point(150, 0);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Login";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.password)).EndInit();

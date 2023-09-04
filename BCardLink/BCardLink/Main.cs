@@ -141,7 +141,7 @@ namespace BCardLink
 
         private void cboDevices_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            GetDevices();
             // pakt de device(s) op
             DeactivateDevice();
             ConnectToDevice(cboDevices.Text);
@@ -255,6 +255,17 @@ namespace BCardLink
 
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if(isLoginFormOpen == false)
+            {
+                this.Close();
+            }
+            else
+            {
+                PopupMessage("close the login form");
+            }
+        }
     }
 
 }

@@ -54,6 +54,7 @@
             // 
             // btnsave
             // 
+            this.btnsave.AutoSize = true;
             this.btnsave.BackColor = System.Drawing.Color.SteelBlue;
             this.btnsave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsave.ForeColor = System.Drawing.Color.WhiteSmoke;
