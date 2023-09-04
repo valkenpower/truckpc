@@ -33,10 +33,10 @@ namespace BCardLink
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMessage = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cboDevices = new System.Windows.Forms.ComboBox();
             this.btnsettings = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUID = new System.Windows.Forms.TextBox();
+            this.cboDevices = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@ namespace BCardLink
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.84861F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.1514F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.tableLayoutPanel1.Controls.Add(this.lblMessage, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnsettings, 2, 0);
@@ -92,23 +92,11 @@ namespace BCardLink
             this.label1.TabIndex = 1;
             this.label1.Text = "device:";
             // 
-            // cboDevices
-            // 
-            this.cboDevices.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cboDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDevices.FormattingEnabled = true;
-            this.cboDevices.Location = new System.Drawing.Point(158, 18);
-            this.cboDevices.Margin = new System.Windows.Forms.Padding(30, 18, 30, 30);
-            this.cboDevices.Name = "cboDevices";
-            this.cboDevices.Size = new System.Drawing.Size(204, 28);
-            this.cboDevices.TabIndex = 2;
-            this.cboDevices.SelectedIndexChanged += new System.EventHandler(this.cboDevices_SelectedIndexChanged);
-            // 
             // btnsettings
             // 
             this.btnsettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnsettings.BackgroundImage")));
             this.btnsettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnsettings.Location = new System.Drawing.Point(1017, 5);
+            this.btnsettings.Location = new System.Drawing.Point(1016, 5);
             this.btnsettings.Margin = new System.Windows.Forms.Padding(20, 5, 3, 3);
             this.btnsettings.Name = "btnsettings";
             this.btnsettings.Size = new System.Drawing.Size(78, 44);
@@ -142,6 +130,18 @@ namespace BCardLink
             this.txtUID.Size = new System.Drawing.Size(371, 29);
             this.txtUID.TabIndex = 4;
             this.txtUID.Visible = false;
+            // 
+            // cboDevices
+            // 
+            this.cboDevices.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDevices.FormattingEnabled = true;
+            this.cboDevices.Location = new System.Drawing.Point(158, 18);
+            this.cboDevices.Margin = new System.Windows.Forms.Padding(30, 18, 30, 30);
+            this.cboDevices.Name = "cboDevices";
+            this.cboDevices.Size = new System.Drawing.Size(204, 28);
+            this.cboDevices.TabIndex = 2;
+            this.cboDevices.SelectedIndexChanged += new System.EventHandler(this.cboDevices_SelectedIndexChanged);
             // 
             // Main
             // 

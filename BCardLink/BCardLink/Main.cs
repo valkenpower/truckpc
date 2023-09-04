@@ -46,6 +46,7 @@ namespace BCardLink
             catch (Exception E)
             {
                 PopupMessage("error: " + E.Message);
+                
 
             }
 
@@ -115,7 +116,9 @@ namespace BCardLink
                             process.Kill();
                         }
                         MessageBox.Show("Error ... " + c.error);
-                        
+                       
+
+
                     }
                 }));
 
@@ -130,6 +133,7 @@ namespace BCardLink
             {
                 WriteMessage("can't read the UID try again");
                 PopupMessage("CardAdded Exception: " + ex.Message);
+                
             }
         }
 
@@ -147,6 +151,7 @@ namespace BCardLink
                 Console.WriteLine(cboDevices.Text);
 
             }
+            
 
         }
 
@@ -156,8 +161,11 @@ namespace BCardLink
             try
             {
                 IReadOnlyList<string> readers = CardReader.GetReaderNames();
-
+                cboDevices.Items.Clear();
                 cboDevices.Items.AddRange(readers.ToArray());
+
+                // Clear the readers list or create a new empty one
+                readers = new List<string>();
             }
             catch (Exception e)
             {
@@ -184,6 +192,7 @@ namespace BCardLink
             catch (Exception e)
             {
                 PopupMessage("Exception: " + e.Message);
+                
             }
         }
 
@@ -194,6 +203,7 @@ namespace BCardLink
             var ignored = this.BeginInvoke((Action)(() =>
             {
                 MessageBox.Show(message);
+                GetDevices();
             }));
         }
 
@@ -215,9 +225,8 @@ namespace BCardLink
             reader.CardRemoved -= CardRemoved;
             reader.Dispose();
             reader = null;
-        }
-
-        private static readonly HttpClient client = new HttpClient();
+           
+        } 
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -233,12 +242,12 @@ namespace BCardLink
         public void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             isLoginFormOpen = false; // Reset the flag when the login form is closed
+            
         }
 
         private void Main_Shown(object sender, EventArgs e)
         {
             // voor de reader gelijk te kiezen
-            Console.WriteLine("vxxcvcxv");
             if (cboDevices.Items.Count > 0 && cboDevices.Items.Count < 2)
             {
                 cboDevices.SelectedIndex = 0;

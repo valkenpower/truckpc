@@ -17,7 +17,7 @@ namespace BCardLink
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (txtusername.Text == "maalin" && txtpassword.Text == "123")
+            if (txtusername.Text == "Admin" && txtpassword.Text == "Valk132")
             {
                 new wijzig_url().Show();
                 this.Close();
@@ -33,7 +33,6 @@ namespace BCardLink
         // exit knop
         private void button2_Click(object sender, EventArgs e)
         {
-
             this.Close();
         }
     }

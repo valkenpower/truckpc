@@ -16,13 +16,6 @@ namespace BCardLink
             Properties.Settings.Default.URL = txturlchanger.Text;
             Properties.Settings.Default.Save();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // wijzig knop URL
-            Console.WriteLine(Properties.Settings.Default.URL);
-        }
-
         private void form2_Load(object sender, EventArgs e)
         {
             // textbox voor URL
