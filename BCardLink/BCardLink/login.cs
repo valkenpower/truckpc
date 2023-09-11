@@ -11,7 +11,7 @@ namespace BCardLink
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            
+
         }
         // login knop
         private void button1_Click(object sender, EventArgs e)

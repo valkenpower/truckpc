@@ -15,6 +15,8 @@ namespace BCardLink
             // save knop URl
             Properties.Settings.Default.URL = txturlchanger.Text;
             Properties.Settings.Default.Save();
+            MessageBox.Show("Sucess we sluiten deze scherm");
+            this.Close();
         }
         private void form2_Load(object sender, EventArgs e)
         {

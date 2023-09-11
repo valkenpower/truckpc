@@ -4,17 +4,17 @@
   <description asmv2:publisher="Valkenpower" asmv2:product="Cardlink App" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="BCardLink.exe.manifest" size="4776">
+    <dependentAssembly dependencyType="install" codebase="BCardLink.exe.manifest" size="4778">
       <assemblyIdentity name="BCardLink.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SH25zZ8wbuyaXKxRBWmPMuGhGj9nfKWOtyvFVm0DNIA=</dsig:DigestValue>
+        <dsig:DigestValue>+Snir7qhFFgYyOi2kuGzkZZDgwO5ZjK0IM34T3zVO0U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

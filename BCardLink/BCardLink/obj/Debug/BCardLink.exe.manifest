@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BCardLink.exe" size="67640">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BCardLink.exe" size="2717752">
       <assemblyIdentity name="BCardLink" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JulTxaa7ml1B8Gseihv9QqvgFSgHeaKDBiO7u8/aqcA=</dsig:DigestValue>
+        <dsig:DigestValue>d/Jvw3gsPVX/P1kqJOdygBnIG7lvJiX0RR5FOzc7vw8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -77,13 +77,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="BCardLink.exe.config" size="959">
+  <file name="BCardLink.exe.config" size="960">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>W0D8iJfVnkVHbSKeDuciMGKI1BBu9Rb2NosiiSCHOzs=</dsig:DigestValue>
+      <dsig:DigestValue>8rdGin4M4UlWeZjrjiZiYAzzrvRypb4d4dnOjAvxBqw=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
