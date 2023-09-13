@@ -2,11 +2,11 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
-    <PublishUrlHistory>C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\Nieuwe map\|publish\</PublishUrlHistory>
+    <PublishUrlHistory>C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\app\|C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\|C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\Nieuwe map\|publish\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
     <UpdateUrlHistory />
-    <BootstrapperUrlHistory />
+    <BootstrapperUrlHistory>C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\app</BootstrapperUrlHistory>
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
@@ -14,6 +14,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Project</StartAction>
     <RemoteDebugEnabled>true</RemoteDebugEnabled>
+    <AuthenticationMode>Windows</AuthenticationMode>
   </PropertyGroup>
   <PropertyGroup>
     <EnableSecurityDebugging>false</EnableSecurityDebugging>

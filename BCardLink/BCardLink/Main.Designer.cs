@@ -50,7 +50,7 @@ namespace BCardLink
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.874327F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.12567F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel1.Controls.Add(this.lblMessage, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnsettings, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtUID, 1, 1);
@@ -76,7 +76,7 @@ namespace BCardLink
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.Location = new System.Drawing.Point(123, 730);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(1094, 38);
+            this.lblMessage.Size = new System.Drawing.Size(1093, 38);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "place card on the reader to scan until you see a loading bar.";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -85,7 +85,7 @@ namespace BCardLink
             // 
             this.btnsettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnsettings.BackgroundImage")));
             this.btnsettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnsettings.Location = new System.Drawing.Point(1240, 5);
+            this.btnsettings.Location = new System.Drawing.Point(1239, 5);
             this.btnsettings.Margin = new System.Windows.Forms.Padding(20, 5, 3, 3);
             this.btnsettings.Name = "btnsettings";
             this.btnsettings.Size = new System.Drawing.Size(78, 44);

@@ -53,6 +53,7 @@ C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Debug\BCardLink.Properties.Resources.resources
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Debug\CardReader.csproj.GenerateResource.cache
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Debug\CardReader.csproj.CoreCompileInputs.cache
+C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Debug\BCardLink.TrustInfo.xml
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Debug\BCardLink.exe.manifest
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Debug\BCardLink.application
 C:\Users\stage_maalin_valkenp\source\repos\ps222404\nfcvalk\BCardLink\BCardLink\obj\Debug\CardReader.csproj.CopyComplete

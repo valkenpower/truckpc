@@ -32,6 +32,7 @@
             this.txturlchanger = new System.Windows.Forms.TextBox();
             this.btnsave = new System.Windows.Forms.Button();
             this.btnexit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -79,12 +80,27 @@
             this.btnexit.UseVisualStyleBackColor = false;
             this.btnexit.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.DarkGreen;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Location = new System.Drawing.Point(440, 108);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 35);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Update Program";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // wijzig_url
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(602, 155);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnexit);
             this.Controls.Add(this.btnsave);
             this.Controls.Add(this.txturlchanger);
@@ -106,5 +122,6 @@
         private System.Windows.Forms.TextBox txturlchanger;
         private System.Windows.Forms.Button btnsave;
         private System.Windows.Forms.Button btnexit;
+        private System.Windows.Forms.Button button1;
     }
 }
