@@ -11,6 +11,8 @@ using System.Diagnostics;
 using System.Linq;
 //dit gebruiken we om een http request te maken
 using System.Net.Http;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace BCardLink
@@ -32,8 +34,9 @@ namespace BCardLink
         public Main()
         {
             InitializeComponent();
-            // hij roept get devices op lijn 258
+            // hij roept get devices op lijn 259
             GetDevices();
+            cboDevices.TopLevelControl.Focus();
         }
         // dit is een class userlist dit gebruik ik om de users in een lijst te zetten.
         // dit geeft het meer structuur en elke value heeft een naam.
@@ -65,6 +68,7 @@ namespace BCardLink
         {
             try
             {
+                WriteMessage("Card detected. Do not remove while linking.");
                 // er wordt een kaart aangemaakt voor de kaart dat op de reader zit
                 card = args.SmartCard.CreateMiFareCard();
                 // er wordt voor informatie van de kaart gevraagd
@@ -75,20 +79,22 @@ namespace BCardLink
                 // nu wordt het in een variable juids gedaan dat op lijn 27 is 
                 juid = juids;
                 //txtUID.Text = juids; //// uncomment dit als je de uid v/d kaart wil zien zorg ervoor dat dit niet om de eind programma staat
-                WriteMessage("Card detected. Do not remove while linking.");
+          
                 // als de lijst leeg is dan wordt de conditie gedaan
                 if (list.Count <= 0)
                 {
                     var ignored = this.BeginInvoke((Action)(() =>
                     {
-                        //txtUID.Visible = true; //// zie lijn 77
+                        string version = Assembly.GetExecutingAssembly().GetName().Version.ToString(); ;
+                        //txtUID.Visible = true; //// zie lijn 79
                         //label2.Visible = true;
 
                         //headers voor de http request
                         var values = new Dictionary<string, string>
                         {
                         { "cardid", juid },
-                        { "thing2", "world" }
+                        { "thing2", "world"},
+                        { "buildnumber", version}
                         };
                         // hij maakt hem klaar voor de request 
                         var content = new FormUrlEncodedContent(values);
@@ -100,18 +106,39 @@ namespace BCardLink
                         //resultaat wordt geconvert naar json
                         dynamic c = JsonConvert.DeserializeObject(resultaat);
 
-                        // als er geen error is, dan wordt er een foreach gemaaktt
+                        // als er geen error is dan kan de code verder gaan
                         if (c.error == null)
                         {
-                            // voor elke user dat er in de json is dan maken we daarvoor een class dat in de lijst gaat zie class user list
-                            foreach (var i in c.userlist)
+                            if(c.buildnumber == version) 
                             {
-                                list.Add(new userlist(i.username, i.rdppassword, i.rdpserver, i.portal_cardnumber));
+                                // voor elke user dat er in de json is dan maken we daarvoor een class dat in de lijst gaat zie class user list
+                                foreach (var i in c.userlist)
+                                {
+                                    list.Add(new userlist(i.username, i.rdppassword, i.rdpserver, i.portal_cardnumber));
+                                }
+                                // bool wordt op true gezet dus de kaart is geautoriseerd
+                                iscardtrue = true;
+                                // we roepen een andere methode aan om de RDP te starten
+                                cardadded(sender, args);
                             }
-                            // bool wordt op true gezet dus de kaart is geautoriseerd
-                            iscardtrue = true;
-                            // we roepen een andere methode aan om de RDP te starten
-                            cardadded(sender, args);
+                            else
+                            {
+                                PopupMessage("program is outdated starting update");
+                                //we hebben een link gekregen omdat onze buildnumber niet correct was demo
+                                //var link = c.updatelink
+                                //var cmd1 = "cd %userprofile%\\Documents\\";
+                                //var cmd2 = "curl -s https://api.github.com/repos/jgm/pandoc/releases/latest \
+                                //var cmd3 = grep "browser_download_url.*deb" \
+                                //var cmd4 = cut - d : -f 2,3 \
+                                //var cmd5 = tr - d \" \
+                                //var cmd6 = wget - qi - ";
+                                //var cmd7 = "&& start %userprofile%\\Documents\\setup";
+                                //string Cmd = "link git pull etc" cmd1 + "&&" + cmd2 + "&" + cmd3;
+                                //System.Diagnostics.Process.Start("CMD.exe", "/C " + szCmd);
+                                this.Close();
+
+                            }
+
                         }
                         // er is een error dat we hebben gekregen dat betekend dat de kaart niet geautoriseerd is  
                         else
@@ -120,7 +147,7 @@ namespace BCardLink
                             iscardtrue = false;
                             // error message 
                             WriteMessage("This card is not authorized. Try another card.");
-                            PopupMessage("This card is not authorized. Try another card.");
+                            PopupMessage("This card "+juid+" is not authorized. take a picture of the card id and ask ronald to make it authorized" );
                         }
                     }));
                 }
@@ -202,7 +229,7 @@ namespace BCardLink
                 {
                     // kaart was niet geautoriseerd bool stond op false
                     WriteMessage("This card is not authorized. Try another card.");
-                    PopupMessage("This card is not authorized. Try another card.");
+                    PopupMessage("This card " + juid + " is not authorized. take a picture of the card id and ask ronald to make it authorized");
                 }
 
             }
@@ -238,8 +265,8 @@ namespace BCardLink
         // deze methode wordt aangeroepen wanneer er iets verandert in de combobox
         private void cboDevices_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetDevices();
-            // pakt de device(s) op
+            // zorgt ervoor dat het niet gehighlight is 
+            this.ActiveControl = null;
             // deactiveer vorige reader
             DeactivateDevice();
             // connect met nieuwe reader
@@ -252,8 +279,6 @@ namespace BCardLink
                 Console.WriteLine(cboDevices.Text);
 
             }
-
-
         }
 
         private void GetDevices()
@@ -265,9 +290,7 @@ namespace BCardLink
                 IReadOnlyList<string> readers = CardReader.GetReaderNames();
                 cboDevices.Items.Clear();
                 cboDevices.Items.AddRange(readers.ToArray());
-
-                // Clear the readers list or create a new empty one
-                readers = new List<string>();
+                
             }
             catch (Exception e)
             {
@@ -306,21 +329,39 @@ namespace BCardLink
         //dit is de popup message dat we in allerlei methods aanroepen 
         public void PopupMessage(string message)
         {
-            var ignored = this.BeginInvoke((Action)(() =>
+            try
             {
-                // er wordt een message box aangemaakt met de message van de andere method 
-                MessageBox.Show(message);
-                GetDevices();
-            }));
+                var ignored = this.BeginInvoke((Action)(() =>
+                {
+                    // er wordt een message box aangemaakt met de message van de andere method 
+                    MessageBox.Show(message);
+                    GetDevices();
+                }));
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+
         }
         // dit is de message dat we onderaan het scherm weergeven. deze message komen ookvan ander methodes
         public void WriteMessage(string message)
         {
+            try
+            {
             var ignored = this.BeginInvoke((Action)(() =>
             {
                 //Label veranderd van text
                 lblMessage.Text = message;
             }));
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+
         }
 
         //alles wat we van de reader hebben wordt verwijderd behalve de naam
@@ -360,12 +401,8 @@ namespace BCardLink
 
         private void Main_Shown(object sender, EventArgs e)
         {
-            // er wordt gekeken of er readers zijn
-            if (cboDevices.Items.Count > 0 && cboDevices.Items.Count < 2)
-            {
                 // eerste reader wordt gekozen
                 cboDevices.SelectedIndex = 0;
-            }
 
         }
         // deze methode wordt aangeroepen wanneer er op de exit buton wordt geklikt
@@ -380,6 +417,30 @@ namespace BCardLink
             {
                 PopupMessage("close the login form");
             }
+        }
+        private void reset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //reset list dat we hebben gemaakt dit gebruiken we waneer het programma niet werkt 0f wanneer iemand zijn armband vergeten is 
+                list.Clear();
+                Console.WriteLine(list);
+                Reloadbtn_Click(sender, e);
+                PopupMessage("reset succesful");
+            }
+            catch (Exception)
+            {
+                PopupMessage("reset unsuccesful");
+            }
+ 
+            
+        }
+
+        private void Reloadbtn_Click(object sender, EventArgs e)
+        {
+            // zorgt er voor dat de combobox reload zo kun je nieuwe devices zien
+            GetDevices();
+            Main_Shown(sender, e);
         }
     }
 

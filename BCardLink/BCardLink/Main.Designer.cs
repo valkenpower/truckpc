@@ -32,12 +32,14 @@ namespace BCardLink
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.btnsettings = new System.Windows.Forms.Button();
             this.txtUID = new System.Windows.Forms.TextBox();
-            this.cboDevices = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.reset = new System.Windows.Forms.Button();
+            this.btnsettings = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cboDevices = new System.Windows.Forms.ComboBox();
+            this.Reloadbtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,23 +49,27 @@ namespace BCardLink
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.874327F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.12567F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.3012F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.69879F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 698F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel1.Controls.Add(this.lblMessage, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnsettings, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtUID, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.cboDevices, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.reset, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnsettings, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cboDevices, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Reloadbtn, 2, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 640F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 645F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1365, 768);
@@ -72,62 +78,39 @@ namespace BCardLink
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.lblMessage, 3);
             this.lblMessage.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.Location = new System.Drawing.Point(123, 730);
+            this.lblMessage.Location = new System.Drawing.Point(118, 730);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(1093, 38);
+            this.lblMessage.Size = new System.Drawing.Size(1140, 38);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "place card on the reader to scan until you see a loading bar.";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // btnsettings
-            // 
-            this.btnsettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnsettings.BackgroundImage")));
-            this.btnsettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnsettings.Location = new System.Drawing.Point(1239, 5);
-            this.btnsettings.Margin = new System.Windows.Forms.Padding(20, 5, 3, 3);
-            this.btnsettings.Name = "btnsettings";
-            this.btnsettings.Size = new System.Drawing.Size(78, 44);
-            this.btnsettings.TabIndex = 3;
-            this.btnsettings.UseVisualStyleBackColor = true;
-            this.btnsettings.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtUID
             // 
             this.txtUID.BackColor = System.Drawing.Color.White;
             this.txtUID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.txtUID.Location = new System.Drawing.Point(120, 62);
+            this.txtUID.Location = new System.Drawing.Point(115, 57);
             this.txtUID.Margin = new System.Windows.Forms.Padding(0);
             this.txtUID.Multiline = true;
             this.txtUID.Name = "txtUID";
             this.txtUID.ReadOnly = true;
-            this.txtUID.Size = new System.Drawing.Size(371, 29);
+            this.txtUID.Size = new System.Drawing.Size(340, 29);
             this.txtUID.TabIndex = 4;
             this.txtUID.Visible = false;
-            // 
-            // cboDevices
-            // 
-            this.cboDevices.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cboDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDevices.FormattingEnabled = true;
-            this.cboDevices.Location = new System.Drawing.Point(150, 18);
-            this.cboDevices.Margin = new System.Windows.Forms.Padding(30, 18, 30, 30);
-            this.cboDevices.Name = "cboDevices";
-            this.cboDevices.Size = new System.Drawing.Size(204, 28);
-            this.cboDevices.TabIndex = 2;
-            this.cboDevices.SelectedIndexChanged += new System.EventHandler(this.cboDevices_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 0);
+            this.label1.Location = new System.Drawing.Point(47, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
-            this.label1.Size = new System.Drawing.Size(65, 60);
+            this.label1.Size = new System.Drawing.Size(65, 57);
             this.label1.TabIndex = 1;
             this.label1.Text = "device:";
             // 
@@ -137,7 +120,7 @@ namespace BCardLink
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(54, 62);
+            this.label2.Location = new System.Drawing.Point(49, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 29);
             this.label2.TabIndex = 5;
@@ -145,11 +128,39 @@ namespace BCardLink
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label2.Visible = false;
             // 
+            // reset
+            // 
+            this.reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.reset.BackColor = System.Drawing.Color.DodgerBlue;
+            this.reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.reset.Location = new System.Drawing.Point(3, 729);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(95, 36);
+            this.reset.TabIndex = 7;
+            this.reset.Text = "Reset";
+            this.reset.UseVisualStyleBackColor = false;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
+            // 
+            // btnsettings
+            // 
+            this.btnsettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnsettings.BackgroundImage")));
+            this.btnsettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnsettings.Location = new System.Drawing.Point(1281, 5);
+            this.btnsettings.Margin = new System.Windows.Forms.Padding(20, 5, 3, 3);
+            this.btnsettings.Name = "btnsettings";
+            this.btnsettings.Size = new System.Drawing.Size(78, 44);
+            this.btnsettings.TabIndex = 3;
+            this.btnsettings.UseVisualStyleBackColor = true;
+            this.btnsettings.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Location = new System.Drawing.Point(1267, 729);
             this.button1.Name = "button1";
@@ -158,6 +169,39 @@ namespace BCardLink
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // cboDevices
+            // 
+            this.cboDevices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboDevices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDevices.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboDevices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDevices.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.cboDevices.IntegralHeight = false;
+            this.cboDevices.Location = new System.Drawing.Point(145, 18);
+            this.cboDevices.Margin = new System.Windows.Forms.Padding(30, 18, 30, 30);
+            this.cboDevices.Name = "cboDevices";
+            this.cboDevices.Size = new System.Drawing.Size(280, 28);
+            this.cboDevices.TabIndex = 2;
+            this.cboDevices.SelectedIndexChanged += new System.EventHandler(this.cboDevices_SelectedIndexChanged);
+            // 
+            // Reloadbtn
+            // 
+            this.Reloadbtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Reloadbtn.BackColor = System.Drawing.Color.ForestGreen;
+            this.Reloadbtn.FlatAppearance.BorderSize = 0;
+            this.Reloadbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reloadbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reloadbtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Reloadbtn.Location = new System.Drawing.Point(465, 18);
+            this.Reloadbtn.Margin = new System.Windows.Forms.Padding(10, 18, 10, 10);
+            this.Reloadbtn.Name = "Reloadbtn";
+            this.Reloadbtn.Size = new System.Drawing.Size(88, 29);
+            this.Reloadbtn.TabIndex = 8;
+            this.Reloadbtn.Text = "new device";
+            this.Reloadbtn.UseVisualStyleBackColor = false;
+            this.Reloadbtn.Click += new System.EventHandler(this.Reloadbtn_Click);
             // 
             // Main
             // 
@@ -193,6 +237,8 @@ namespace BCardLink
         private System.Windows.Forms.TextBox txtUID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button reset;
+        private System.Windows.Forms.Button Reloadbtn;
     }
 }
 

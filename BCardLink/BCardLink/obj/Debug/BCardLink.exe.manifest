@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BCardLink.exe" size="2839096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BCardLink.exe" size="2839608">
       <assemblyIdentity name="BCardLink" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>exQAX3f5IOE6Gxi6/c+r6Gr0L1jITpiIdmsNTjwRGwY=</dsig:DigestValue>
+        <dsig:DigestValue>dwwUxl+i6+4GjiFFe/nRpWtgJLZnJ5NHsC180O7nKBk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -78,13 +78,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="BCardLink.exe.config" size="2096">
+  <file name="BCardLink.exe.config" size="1027">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>xjea55502z4UVOV6cXEvwzIzh7jYdHUA1fbgiICTbkM=</dsig:DigestValue>
+      <dsig:DigestValue>QF78ZT3vLPtGJh+Tx7+YHSlqPlQoTgtyzE01NeDPEgA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Valkenpower_logo.ico" size="120446">
