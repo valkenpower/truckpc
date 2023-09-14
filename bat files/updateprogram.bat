@@ -1,20 +1,17 @@
 @echo off
 cd /d "%userprofile%\Documents\truckpc"  
 git pull
-
-
+set "setupPath=%userprofile%\Documents\truckpc\app"
+set "setupPath2=%userprofile%\Documents\truckpc\app\setup"
 if errorlevel 0 (
-    set "setupPath=%userprofile%\Documents\truckpc\app\setup.exe"
-    
     if exist "%setupPath%" (
         REM Run the setup.exe file
-        start "" "%setupPath%"
+        start "" "%setupPath2%"
     ) else (
-        echo Setup.exe and "%userprofile%\Documents\truckpc\app\setup.exe" not found.
+        echo Setup.exe and %setupPath% not found.
     )
 ) else (
     echo Git pull operation failed.
 )
 
 
-pause
