@@ -1,4 +1,5 @@
-﻿///dit gebruiken we voor de nfc kaarten
+﻿//dit is van .net zelf
+///dit gebruiken we voor de nfc kaarten
 using MiFare;
 using MiFare.Classic;
 using MiFare.Devices;
@@ -6,13 +7,11 @@ using MiFare.Devices;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 //dit gebruiken we om een http request te maken
 using System.Net.Http;
 using System.Reflection;
-using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace BCardLink
@@ -68,6 +67,7 @@ namespace BCardLink
         {
             try
             {
+
                 WriteMessage("Card detected. Do not remove while linking.");
                 // er wordt een kaart aangemaakt voor de kaart dat op de reader zit
                 card = args.SmartCard.CreateMiFareCard();
@@ -79,7 +79,7 @@ namespace BCardLink
                 // nu wordt het in een variable juids gedaan dat op lijn 27 is 
                 juid = juids;
                 //txtUID.Text = juids; //// uncomment dit als je de uid v/d kaart wil zien zorg ervoor dat dit niet om de eind programma staat
-          
+
                 // als de lijst leeg is dan wordt de conditie gedaan
                 if (list.Count <= 0)
                 {
@@ -109,7 +109,7 @@ namespace BCardLink
                         // als er geen error is dan kan de code verder gaan
                         if (c.error == null)
                         {
-                            if(c.buildnumber == version) 
+                            if (c.latest_buildnumber == version.Replace(".", ""))
                             {
                                 // voor elke user dat er in de json is dan maken we daarvoor een class dat in de lijst gaat zie class user list
                                 foreach (var i in c.userlist)
@@ -123,18 +123,9 @@ namespace BCardLink
                             }
                             else
                             {
-                                PopupMessage("program is outdated starting update");
-                                //we hebben een link gekregen omdat onze buildnumber niet correct was demo
-                                //var link = c.updatelink
-                                //var cmd1 = "cd %userprofile%\\Documents\\";
-                                //var cmd2 = "curl -s https://api.github.com/repos/jgm/pandoc/releases/latest \
-                                //var cmd3 = grep "browser_download_url.*deb" \
-                                //var cmd4 = cut - d : -f 2,3 \
-                                //var cmd5 = tr - d \" \
-                                //var cmd6 = wget - qi - ";
-                                //var cmd7 = "&& start %userprofile%\\Documents\\setup";
-                                //string Cmd = "link git pull etc" cmd1 + "&&" + cmd2 + "&" + cmd3;
-                                //System.Diagnostics.Process.Start("CMD.exe", "/C " + szCmd);
+                                UpdateFromGithub();
+                                MessageBox.Show("there is an update");
+                                MessageBox.Show("this form will be closed after the update a new one will come");
                                 this.Close();
 
                             }
@@ -147,7 +138,7 @@ namespace BCardLink
                             iscardtrue = false;
                             // error message 
                             WriteMessage("This card is not authorized. Try another card.");
-                            PopupMessage("This card "+juid+" is not authorized. take a picture of the card id and ask ronald to make it authorized" );
+                            PopupMessage("This card " + juid + " is not authorized. take a picture of the card id and send it to the admin to make the card authorized");
                         }
                     }));
                 }
@@ -156,7 +147,7 @@ namespace BCardLink
                     // we zoeken met een foreach en if de uid van de kaart om hem als geautoriseerd te maken in dit programma
                     foreach (var item in list)
                     {
-                        if (item.portal_cardnumber == juid) 
+                        if (item.portal_cardnumber == juid)
                         {
                             // uid in lijst is gelijk aan de gegeven uid 
                             // kaart is geautoriseerd
@@ -172,7 +163,7 @@ namespace BCardLink
                 // er is iets in de proces fout gegaan. bijv kaart is te snel eraf gehaald
                 WriteMessage("Can't read the UID. Try again.");
                 PopupMessage("CardAdded Exception: " + ex.Message);
-                
+
             }
         }
 
@@ -238,7 +229,7 @@ namespace BCardLink
                 // er is iest fouts gegaan in deze methode
                 PopupMessage(e.Message);
             }
-           
+
         }
         // alles wat we weten van deze kaart wordt verwijderd behalve de data in de lijst
         private void CardRemoved(object sender, EventArgs e)
@@ -273,24 +264,24 @@ namespace BCardLink
             ConnectToDevice(cboDevices.Text);
 
             // test
-            Console.WriteLine(cboDevices);
-            if (cboDevices.Items.Count > 0)
-            {
-                Console.WriteLine(cboDevices.Text);
+            //Console.WriteLine(cboDevices);
+            //if (cboDevices.Items.Count > 0)
+            //{
+            //    Console.WriteLine(cboDevices.Text);
 
-            }
+            //}
         }
 
         private void GetDevices()
         {
-          
+
             try
             {
                 // pakt alle readers. ze worden in een lijst gestopt en in de combobox 
                 IReadOnlyList<string> readers = CardReader.GetReaderNames();
                 cboDevices.Items.Clear();
                 cboDevices.Items.AddRange(readers.ToArray());
-                
+
             }
             catch (Exception e)
             {
@@ -305,6 +296,7 @@ namespace BCardLink
         {
             try
             {
+
                 // er wordt met naam de reader opgezocht
                 reader = await CardReader.FindAsync(name);
                 if (reader == null) // als er geen readers zijn dan komt een popupmessage
@@ -312,10 +304,12 @@ namespace BCardLink
                     PopupMessage("No Readers Found");
                     return;
                 }
-                // als er een kaart op die reader zit dan weet de device dat hij deze method moet uitvoeren
+                // als er een kaart op de reader wordt geplaats dan weet de device dat hij deze methods moet uitvoeren
                 reader.CardAdded += CardAdded;
+                // deze method wordt uitgevoerd wanneer de kaart van de reader verwijderd wordt
                 reader.CardRemoved += CardRemoved;
                 WriteMessage("Place card on the reader to scan.");
+                return;
             }
             catch (Exception e)
             {
@@ -350,11 +344,11 @@ namespace BCardLink
         {
             try
             {
-            var ignored = this.BeginInvoke((Action)(() =>
-            {
-                //Label veranderd van text
-                lblMessage.Text = message;
-            }));
+                var ignored = this.BeginInvoke((Action)(() =>
+                {
+                    //Label veranderd van text
+                    lblMessage.Text = message;
+                }));
             }
             catch (Exception)
             {
@@ -376,7 +370,7 @@ namespace BCardLink
             reader.CardRemoved -= CardRemoved;
             reader.Dispose();
             reader = null;
-
+            return;
         }
 
         // de login form wordt geopend
@@ -396,27 +390,28 @@ namespace BCardLink
         public void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             // deze bool laat bepaalde buttons weten of de login form open of gesloten is.
-             isLoginFormOpen = false;
+            isLoginFormOpen = false;
         }
 
         private void Main_Shown(object sender, EventArgs e)
         {
-                // eerste reader wordt gekozen
+
+            // eerste reader wordt gekozen
+            if (cboDevices.Items.Count > 0)
+            {
                 cboDevices.SelectedIndex = 0;
+            }
+            else
+            {
+                PopupMessage("there are no readers. connect a reader and click on new device");
+            }
+
 
         }
         // deze methode wordt aangeroepen wanneer er op de exit buton wordt geklikt
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // als de login form niet gesloten is dan wordt de main venster niet gesloten
-            if (isLoginFormOpen == false)
-            {
-                this.Close();
-            }
-            else
-            {
-                PopupMessage("close the login form");
-            }
+            Close();
         }
         private void reset_Click(object sender, EventArgs e)
         {
@@ -432,8 +427,8 @@ namespace BCardLink
             {
                 PopupMessage("reset unsuccesful");
             }
- 
-            
+
+
         }
 
         private void Reloadbtn_Click(object sender, EventArgs e)
@@ -441,6 +436,58 @@ namespace BCardLink
             // zorgt er voor dat de combobox reload zo kun je nieuwe devices zien
             GetDevices();
             Main_Shown(sender, e);
+        }
+        private void UpdateFromGithub()
+        {
+            try
+            {
+                // Navigate to user's documents directory
+                string path = "%userprofile%/documents";
+
+                // Use PowerShell to fetch the latest release URL from GitHub API.
+                string cmdFetchRelease = "/c powershell -Command \"Invoke-RestMethod -Uri 'https://api.github.com/repos/valkenpower/truckpc/releases/latest' | Select-Object -ExpandProperty assets | Select-Object -First 1 | Select-Object -ExpandProperty browser_download_url\"";
+
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    Arguments = cmdFetchRelease,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = true
+                };
+
+                using (Process process = new Process { StartInfo = startInfo })
+                {
+                    process.Start();
+                    string downloadUrl = process.StandardOutput.ReadToEnd().Trim();
+                    process.WaitForExit();
+
+                    if (!string.IsNullOrEmpty(downloadUrl))
+                    {
+                        // Download the ZIP from the URL
+                        string cmdDownloadZip = $"/c cd {path} && curl -LJO {downloadUrl}";
+                        Process.Start("cmd.exe", cmdDownloadZip).WaitForExit();
+
+                        // Extract the ZIP
+                        string zipFileName = downloadUrl.Split('/').Last();
+                        string destinationFolder = path; // This will unzip directly to %userprofile%/documents
+                        string cmdExtractZip = $"/c tar -xf \"{path}\\{zipFileName}\" -C \"{destinationFolder}\"";
+                        Process.Start("CMD.exe", cmdExtractZip).WaitForExit();
+                        Console.WriteLine(path+"/truckpc/setup.exe");
+                        // Launch the setup.exe
+                        Process.Start(path+"/truckpc/setup");
+                       
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to retrieve update URL.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
         }
     }
 

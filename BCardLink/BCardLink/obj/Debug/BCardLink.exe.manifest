@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BCardLink.exe" size="2839608">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BCardLink.exe" size="2841656">
       <assemblyIdentity name="BCardLink" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dwwUxl+i6+4GjiFFe/nRpWtgJLZnJ5NHsC180O7nKBk=</dsig:DigestValue>
+        <dsig:DigestValue>NHtRpwUok1GWU8wrKfim+QTB41G+1SoxqJQz9uVwfVs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

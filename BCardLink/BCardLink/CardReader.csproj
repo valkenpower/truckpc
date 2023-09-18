@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\app\</PublishUrl>
+    <PublishUrl>C:\Users\stage_maalin_valkenp\Documents\Visual Studio 2022\BcardLink\truckpc\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
