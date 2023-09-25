@@ -35,11 +35,11 @@ namespace BCardLink
             this.txtUID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.reset = new System.Windows.Forms.Button();
             this.btnsettings = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.cboDevices = new System.Windows.Forms.ComboBox();
             this.Reloadbtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.reset = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +56,7 @@ namespace BCardLink
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 518F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
             this.tableLayoutPanel1.Controls.Add(this.lblMessage, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtUID, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -84,7 +84,7 @@ namespace BCardLink
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.Location = new System.Drawing.Point(108, 730);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(1147, 38);
+            this.lblMessage.Size = new System.Drawing.Size(1146, 38);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "place card on the reader.";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -129,49 +129,17 @@ namespace BCardLink
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label2.Visible = false;
             // 
-            // reset
-            // 
-            this.reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.reset.BackColor = System.Drawing.Color.DodgerBlue;
-            this.reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.reset.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.reset.Location = new System.Drawing.Point(534, 18);
-            this.reset.Margin = new System.Windows.Forms.Padding(10, 18, 10, 10);
-            this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(88, 29);
-            this.reset.TabIndex = 7;
-            this.reset.Text = "Reset";
-            this.reset.UseVisualStyleBackColor = false;
-            this.reset.Click += new System.EventHandler(this.reset_Click);
-            // 
             // btnsettings
             // 
             this.btnsettings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnsettings.BackgroundImage")));
             this.btnsettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnsettings.Location = new System.Drawing.Point(1278, 5);
+            this.btnsettings.Location = new System.Drawing.Point(1277, 5);
             this.btnsettings.Margin = new System.Windows.Forms.Padding(20, 5, 3, 3);
             this.btnsettings.Name = "btnsettings";
             this.btnsettings.Size = new System.Drawing.Size(78, 44);
             this.btnsettings.TabIndex = 3;
             this.btnsettings.UseVisualStyleBackColor = true;
             this.btnsettings.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(642, 18);
-            this.button1.Margin = new System.Windows.Forms.Padding(10, 18, 10, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // cboDevices
             // 
@@ -185,7 +153,7 @@ namespace BCardLink
             this.cboDevices.Location = new System.Drawing.Point(135, 18);
             this.cboDevices.Margin = new System.Windows.Forms.Padding(30, 18, 30, 30);
             this.cboDevices.Name = "cboDevices";
-            this.cboDevices.Size = new System.Drawing.Size(251, 28);
+            this.cboDevices.Size = new System.Drawing.Size(250, 28);
             this.cboDevices.TabIndex = 2;
             this.cboDevices.SelectedIndexChanged += new System.EventHandler(this.cboDevices_SelectedIndexChanged);
             // 
@@ -197,7 +165,7 @@ namespace BCardLink
             this.Reloadbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reloadbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Reloadbtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Reloadbtn.Location = new System.Drawing.Point(426, 18);
+            this.Reloadbtn.Location = new System.Drawing.Point(425, 18);
             this.Reloadbtn.Margin = new System.Windows.Forms.Padding(10, 18, 10, 10);
             this.Reloadbtn.Name = "Reloadbtn";
             this.Reloadbtn.Size = new System.Drawing.Size(88, 29);
@@ -205,6 +173,38 @@ namespace BCardLink
             this.Reloadbtn.Text = "new device";
             this.Reloadbtn.UseVisualStyleBackColor = false;
             this.Reloadbtn.Click += new System.EventHandler(this.Reloadbtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Location = new System.Drawing.Point(641, 18);
+            this.button1.Margin = new System.Windows.Forms.Padding(10, 18, 10, 10);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 29);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // reset
+            // 
+            this.reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.reset.BackColor = System.Drawing.Color.DodgerBlue;
+            this.reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.reset.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.reset.Location = new System.Drawing.Point(533, 18);
+            this.reset.Margin = new System.Windows.Forms.Padding(10, 18, 10, 10);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(88, 29);
+            this.reset.TabIndex = 7;
+            this.reset.Text = "Reset";
+            this.reset.UseVisualStyleBackColor = false;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
             // Main
             // 

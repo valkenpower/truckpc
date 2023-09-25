@@ -1,13 +1,15 @@
-﻿//dit is van .net zelf
+﻿
 ///dit gebruiken we voor de nfc kaarten
 using MiFare;
 using MiFare.Classic;
 using MiFare.Devices;
 //dit is voor de json dat we van de server terug krijgen
 using Newtonsoft.Json;
+//dit is van .net zelf
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 //dit gebruiken we om een http request te maken
 using System.Net.Http;
@@ -125,8 +127,6 @@ namespace BCardLink
                             {
                                 MessageBox.Show("there seems to be an update. click on ok to update the program");
                                 UpdateFromGithub();
-                                this.Close();
-
                             }
 
                         }
@@ -441,12 +441,12 @@ namespace BCardLink
             try
             {
 
-                // Navigate to user's documents directory
+                // navigeert naat de users Doucumenten
                 string path = "%userprofile%/Documents";
 
-                // Use PowerShell to fetch the latest release URL from GitHub API.
+                // gebruikt powershell om data te pakken van de github api voor de download link .
                 string cmdFetchRelease = "/c powershell -Command \"Invoke-RestMethod -Uri 'https://api.github.com/repos/valkenpower/truckpc/releases/latest' | Select-Object -ExpandProperty assets | Select-Object -First 1 | Select-Object -ExpandProperty browser_download_url\"";
-
+                // de informatie hierboven worden als een cmd agrument toegevoegd
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
                     FileName = "cmd.exe",
@@ -455,7 +455,7 @@ namespace BCardLink
                     RedirectStandardOutput = true,
                     CreateNoWindow = true
                 };
-
+                // hier in starten we de cmd process om alles te installeren
                 using (Process process = new Process { StartInfo = startInfo })
                 {
                     process.Start();
@@ -464,97 +464,134 @@ namespace BCardLink
 
                     if (!string.IsNullOrEmpty(downloadUrl))
                     {
-                        // Download the ZIP from the URL
+                        // Download de ZIP van de URL
                         string cmdDownloadZip = $"/c cd {path} && curl -LJO {downloadUrl}";
                         Process.Start("cmd.exe", cmdDownloadZip).WaitForExit();
 
-                        // Extract the ZIP
+                        // UNZIP
                         string zipFileName = downloadUrl.Split('/').Last();
                         string destinationFolder = path; // This will unzip directly to %userprofile%/documents
                         string cmdExtractZip = $"/c tar -xf \"{path}\\{zipFileName}\" -C \"{destinationFolder}\"";
                         Process.Start("CMD.exe", cmdExtractZip).WaitForExit();
-                        string end = "/c %userprofile%/Documents/truckpc/setup";
-                        // Launch the setup.exe
-                        UninstallOldVersion();
-                        Startsetup(end);
+                        // verwijdert de oude versie
+                        CreateExternalScript();
+                        Application.Exit();
 
                     }
                     else
                     {
+                        // error message als het niet gelukt is met de url
                         MessageBox.Show("Failed to retrieve update URL.");
                     }
                 }
             }
             catch (Exception ex)
             {
+                //error message als er iets fouts gaat in deze methode
                 MessageBox.Show($"An error occurred: {ex.Message}");
                 Console.WriteLine(ex.Message);
             }
         }
-        private void UninstallOldVersion()
+        private void CreateExternalScript()
         {
-            try
+            string scriptPath = Path.Combine(Path.GetTempPath(), "updateTemp.bat");
+
+            using (StreamWriter sw = new StreamWriter(scriptPath, false))
             {
-                // Use PowerShell to get the uninstall string for the application "Cardlink App" from HKCU
-                string cmdGetUninstallString = "/c powershell -Command \"Get-ItemProperty HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -like 'Cardlink App'} | Select-Object -ExpandProperty UninstallString\"";
+                // Delay to allow the main app to close
+                sw.WriteLine("timeout /t 10");
 
-                ProcessStartInfo startInfo = new ProcessStartInfo
-                {
-                    FileName = "cmd.exe",
-                    Arguments = cmdGetUninstallString,
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = true
-                };
+                // Fetch uninstall command and its arguments, and then execute it
+                sw.WriteLine("powershell -Command \"$uninstallCmd = (Get-ItemProperty HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -like 'Cardlink App'} | Select-Object -ExpandProperty UninstallString); if ($uninstallCmd) { Start-Process cmd -ArgumentList '/c', $uninstallCmd -Wait }\"");
 
-                using (Process process = new Process { StartInfo = startInfo })
-                {
-                    process.Start();
-                    string uninstallCommand = process.StandardOutput.ReadToEnd().Trim();
-                    process.WaitForExit();
-                    ProcessStartInfo startInfo2 = new ProcessStartInfo
-                    {
-                        FileName = "cmd.exe",
-                        Arguments = uninstallCommand,
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        CreateNoWindow = true
-                    };
-                    using (Process newprocess = new Process { StartInfo = startInfo2 })
-                    {
-                        if (!string.IsNullOrEmpty(uninstallCommand))
-                        {
-                            //Execute the uninstall command
-                            Process.Start("cmd.exe", "/c " + uninstallCommand).WaitForExit();
-                        }
-                    }
+                // Start the setup
+                sw.WriteLine("%userprofile%/Documents/truckpc/setup");
 
+                // Delay to ensure the setup finishes (you may need to adjust the delay time)
+                sw.WriteLine("timeout /t 60");
 
-                }
+                // Delete the truckpc folder and the truckpc.zip file
+                sw.WriteLine("if exist \"%userprofile%\\Documents\\truckpc\" rmdir /s /q \"%userprofile%\\Documents\\truckpc\"");
+                sw.WriteLine("if exist \"%userprofile%\\Documents\\truckpc.zip\" del /q \"%userprofile%\\Documents\\truckpc.zip\"");
 
-            }
-            catch (Exception e)
-            {
-
-                PopupMessage($"error: {e.Message}");
+                // Add the line to delete the script itself
+                sw.WriteLine($"del \"{scriptPath}\"");
             }
 
-        }
-        private void Startsetup(string end)
-        {
-            ProcessStartInfo startInfo = new ProcessStartInfo
+            // Start the batch script in detached mode so it doesn't hold resources
+            ProcessStartInfo psi = new ProcessStartInfo
             {
-                FileName = "cmd.exe",
-                Arguments = end,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
+                FileName = scriptPath,
             };
-            using (Process process = new Process { StartInfo = startInfo })
-            {
-                process.Start();
-            }
+
+            Process.Start(psi);
         }
+        //private void UninstallOldVersion()
+        //{
+        //    try
+        //    {
+        //        // Gebruikt HKCU om applicatie te verwijderen. Waarschuwing als het nieuwe applicatie dezelfde versie nummer heeft dan komt er een error (De autoincrement in publish is niet voor de versie nummer houd het wel aan)
+        //        string cmdGetUninstallString = "/c powershell -Command \"Get-ItemProperty HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where-Object {$_.DisplayName -like 'Cardlink App'} | Select-Object -ExpandProperty UninstallString\"";
+        //        //informatie wat de Cmd gaat doen
+        //        ProcessStartInfo startInfo = new ProcessStartInfo
+        //        {
+        //            FileName = "cmd.exe",
+        //            Arguments = cmdGetUninstallString,
+        //            UseShellExecute = false,
+        //            RedirectStandardOutput = true,
+        //            CreateNoWindow = true
+        //        };
+        //        //Cmd open
+        //        using (Process process = new Process { StartInfo = startInfo })
+        //        {
+        //            process.Start();
+        //            string uninstallCommand = process.StandardOutput.ReadToEnd().Trim();
+        //            process.WaitForExit();
+        //            // verwijder oudere versie met cmd
+        //            ProcessStartInfo startInfo2 = new ProcessStartInfo
+        //            {
+        //                FileName = "cmd.exe",
+        //                Arguments = uninstallCommand,
+        //                UseShellExecute = false,
+        //                RedirectStandardOutput = true,
+        //                CreateNoWindow = true
+        //            };
+        //            using (Process newprocess = new Process { StartInfo = startInfo2 })
+        //            {
+        //                if (!string.IsNullOrEmpty(uninstallCommand))
+        //                {
+        //                    //Execute the uninstall command
+        //                    Process.Start("cmd.exe", "/c " + uninstallCommand).WaitForExit();
+        //                }
+        //            }
+
+
+        //        }
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        //error message als het verwijderen niet lukt
+        //        PopupMessage($"error: {e.Message}");
+        //    }
+
+        //}
+        //private void Startsetup(string end) //de path is end
+        //{
+        //    //start de setup met cmd
+        //    ProcessStartInfo startInfo = new ProcessStartInfo
+        //    {
+        //        FileName = "cmd.exe",
+        //        Arguments = end,
+        //        UseShellExecute = false,
+        //        RedirectStandardOutput = true,
+        //        CreateNoWindow = true
+        //    };
+        //    using (Process process = new Process { StartInfo = startInfo })
+        //    {
+        //        process.Start();
+        //    }
+        //}
     }
 
 }
